@@ -1,0 +1,6 @@
+{
+  "name": "Lost & Found Platform",
+  "description": "A clean, modern platform for reporting and finding lost items on campus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
