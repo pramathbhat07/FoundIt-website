@@ -119,6 +119,20 @@ export default function ReportFound() {
 
       const reportUrl = `${window.location.origin}/found/${docRef.id}`;
 
+      // Send email notification to reporter
+      await fetch("/api/notify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          type: "found",
+          itemName: formData.itemName,
+          reportUrl,
+        }),
+      }).catch((err) => console.error("Notification trigger failed:", err));
+
       // Fetch all users to notify them
       try {
         const usersSnapshot = await getDocs(collection(db, "users"));
